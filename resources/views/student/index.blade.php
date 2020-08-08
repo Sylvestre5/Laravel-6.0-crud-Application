@@ -32,9 +32,23 @@
 		}
 	</style>
 	<div class="container">
-		<h2 class="alert alert-success" style="color: #757575; text-align:center;">CRUD APPLICATION</h2>
+
+		<h2 class="alert alert-success" style="color: #757575;">
+			<span style="text-align:left; font-size:15px; color:black; font-weight:bold;"> Welcome {{ Auth::user()->name }}</span>
+			<span style="text-align:center; font-size:27px; margin-left:20%"> CRUD APPLICATION</span>
+		</h2>
+
 		<div class="row">
-			<button data-placement="left" title="Add Record" class="btn btn-info btn-sm" style="margin-left:85%;" data-toggle="modal" data-target="#exampleModal">Add New Student</button>
+			<button class="btn btn-info btn-sm" style="margin-right:65%;" data-toggle="modal" data-target="#exampleModal">Add New Student</button>
+			<!--<button class="btn btn-info btn-sm" style="margin-right:35%;">Logout</button>-->
+			<button class="btn btn-danger btn-sm" style="margin-left:10%;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+				{{ __('Logout') }}
+			</button>
+
+			<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+				@csrf
+			</form>
 		</div>
 		<div class="col-md-12">
 
@@ -55,6 +69,7 @@
 			</script>
 			@endif
 		</div>
+		<br>
 		<table id="dtMaterialDesignExample" class="table" cellspacing="0" width="100%">
 			<thead>
 				<tr>
