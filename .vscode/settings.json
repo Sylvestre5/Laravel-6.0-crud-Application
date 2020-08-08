@@ -1,0 +1,5 @@
+{
+    "eslint.alwaysShowStatus": true,
+    "intelephense.diagnostics.undefinedMethods": false,
+    "intelephense.diagnostics.undefinedTypes": false
+}
